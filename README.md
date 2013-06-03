@@ -5,7 +5,7 @@ my_game
 
 This is a simple text-based RPG adventure game.
 
-**v0.1**
+#### v0.1 ####
 
 *	Comments
 	
