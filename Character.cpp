@@ -2,9 +2,11 @@
 #include "Character.h"
 #include <iostream>
 
-#define errNotFound "\033[31mERROR: STAT NOT FOUND\033[0m";
+#define ERROR "\033[31mERROR: \033[0m"
 
 using namespace std;
+
+string notFound = "stat not found";
 
 Character::Character() {
 	health = 0;
@@ -13,6 +15,8 @@ Character::Character() {
 	con = 0;
 	str = 0;
 	intel = 0;
+	name = "";
+	dead = false;
 }
 
 Character::Character(int h, int s, int m, int c, int t, int i) {
@@ -22,6 +26,19 @@ Character::Character(int h, int s, int m, int c, int t, int i) {
 	con = c;
 	str = t;
 	intel = i;
+	name = "Character";
+	dead = false;
+}
+
+Character::Character(int h, int s, int m, int c, int t, int i, string n) {
+	health = h;
+	stamina = s;
+	magic = m;
+	con = c;
+	str = t;
+	intel = i;
+	name = n;
+	dead = false;
 }
 
 int Character::getStat(char stat) {
@@ -39,7 +56,7 @@ int Character::getStat(char stat) {
 		case 'i':
 			return intel;
 		default:
-			//cout << errNotFound << endl;
+			cerr << ERROR << notFound << endl;
 			return 0;
 	}
 }
@@ -65,7 +82,7 @@ void Character::setStat(char stat, int val) {
 			intel = val;
 			break;
 		default:
-			//cout << errNotFound << endl;
+			cerr << ERROR << notFound << endl;
 			break;
 	}
 }
@@ -91,8 +108,31 @@ void Character::printStat(char stat) {
 			cout << intel;
 			break;
 		default:
-			//cout << errNotFound << endl;
+			cerr << ERROR << notFound << endl;
 			break;
 	}
+}
+
+void Character::printAllStats(int th, int ts, int tm) {
+	cout << "-------------------" << name << "--------------------" <<
+					"\nHealth: " << health << "/" << th <<
+					"\tStamina: " << stamina << "/" << ts <<
+					"\tMagic: " << magic << "/" << tm << endl;
+}
+
+string Character::getName() {
+	return name;
+}
+
+void Character::setName(string n) {
+	name = n;
+}
+
+int Character::isDead() {
+	return dead;
+}
+
+void Character::setDead(bool d) {
+	dead = d;
 }
 
