@@ -12,10 +12,13 @@ Character::Character() {
 	health = 0;
 	stamina = 0;
 	magic = 0;
+	totalHealth = 0;
+	totalStamina = 0;
+	totalMagic = 0;
 	con = 0;
 	str = 0;
 	intel = 0;
-	name = "";
+	name = "Character";
 	dead = false;
 }
 
@@ -23,6 +26,9 @@ Character::Character(int h, int s, int m, int c, int t, int i) {
 	health = h;
 	stamina = s;
 	magic = m;
+	totalHealth = h;
+	totalStamina = s;
+	totalMagic = m;
 	con = c;
 	str = t;
 	intel = i;
@@ -34,6 +40,9 @@ Character::Character(int h, int s, int m, int c, int t, int i, string n) {
 	health = h;
 	stamina = s;
 	magic = m;
+	totalHealth = h;
+	totalStamina = s;
+	totalMagic = m;
 	con = c;
 	str = t;
 	intel = i;
@@ -113,11 +122,11 @@ void Character::printStat(char stat) {
 	}
 }
 
-void Character::printAllStats(int th, int ts, int tm) {
+void Character::printAllStats() {
 	cout << "-------------------" << name << "--------------------" <<
-					"\nHealth: " << health << "/" << th <<
-					"\tStamina: " << stamina << "/" << ts <<
-					"\tMagic: " << magic << "/" << tm << endl;
+					"\nHealth: " << health << "/" << totalHealth <<
+					"\tStamina: " << stamina << "/" << totalStamina <<
+					"\tMagic: " << magic << "/" << totalMagic << endl;
 }
 
 string Character::getName() {

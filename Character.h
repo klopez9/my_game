@@ -10,11 +10,9 @@ class Character {
 
 	protected:
 		int health, stamina, magic;
-		
+		int totalHealth, totalStamina, totalMagic;
 		int con, str, intel;
-		
 		string name;
-		
 		bool dead;
 	
 	public:
@@ -25,7 +23,7 @@ class Character {
 		int getStat(char stat);
 		void setStat(char stat, int val);
 		void printStat(char stat);
-		void printAllStats(int th, int ts, int tm);
+		void printAllStats();
 		
 		string getName();
 		void setName(string n);
